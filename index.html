@@ -17,13 +17,6 @@
       padding: 0;
     }
 
-    /* reset global neutro */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
       min-height: 100vh;
       font-size: 14px;
@@ -76,16 +69,13 @@
 
     #page-login.active {
       min-height: 100vh;
+      flex-direction: column !important;
+      background: #f4f6fb;
     }
 
     /* ══════════════════════════════════════════════════════
    LOGIN — BCI
 ══════════════════════════════════════════════════════ */
-    #page-login.active {
-      flex-direction: column !important;
-      background: #f4f6fb;
-    }
-
     .login-navbar {
       width: 100%;
       background: var(--white);
@@ -118,28 +108,17 @@
       border-radius: 50%;
     }
 
-    .bci-logo-mark .dot-r {
-      background: #E63329;
-    }
-
-    .bci-logo-mark .dot-y {
-      background: #F5A623;
-    }
-
+    .bci-logo-mark .dot-r { background: #E63329; }
+    .bci-logo-mark .dot-y { background: #F5A623; }
     .bci-logo-mark .tri {
-      width: 0;
-      height: 0;
+      width: 0; height: 0;
       border-left: 6px solid transparent;
       border-right: 6px solid transparent;
       border-bottom: 10px solid #F5A623;
       border-radius: 0;
       background: none;
     }
-
-    .bci-logo-mark .sq {
-      background: #0033A0;
-      border-radius: 2px;
-    }
+    .bci-logo-mark .sq { background: #0033A0; border-radius: 2px; }
 
     .bci-logo-text {
       font-size: 22px;
@@ -163,13 +142,9 @@
       transition: color 0.15s, border-color 0.15s;
     }
 
-    .login-navbar-links a.active {
+    .login-navbar-links a.active, .login-navbar-links a:hover {
       color: var(--bci-blue);
       border-bottom-color: var(--bci-blue);
-    }
-
-    .login-navbar-links a:hover {
-      color: var(--bci-blue);
     }
 
     .login-navbar-right {
@@ -226,10 +201,6 @@
       font-size: 24px;
     }
 
-    .login-subtitle {
-      display: none;
-    }
-
     .field {
       margin-bottom: 16px;
     }
@@ -270,8 +241,8 @@
       background: transparent;
     }
 
-    .field-floating input:focus+label,
-    .field-floating input:not(:placeholder-shown)+label {
+    .field-floating input:focus + label,
+    .field-floating input:not(:placeholder-shown) + label {
       top: 10px;
       transform: translateY(0);
       font-size: 11px;
@@ -316,9 +287,7 @@
       text-decoration: none;
     }
 
-    .login-forgot a:hover {
-      text-decoration: underline;
-    }
+    .login-forgot a:hover { text-decoration: underline; }
 
     .btn-primary {
       width: 100%;
@@ -327,33 +296,19 @@
       color: #fff;
       border: none;
       border-radius: 2px;
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 600;
       font-family: 'DM Sans', sans-serif;
       cursor: pointer;
       transition: background 0.2s, transform 0.1s;
       letter-spacing: 1px;
       text-transform: uppercase;
-      font-size: 13px;
     }
 
-    .btn-primary:not(:disabled) {
-      background: var(--bci-blue);
-    }
-
-    .btn-primary:hover:not(:disabled) {
-      background: var(--bci-blue-dark);
-    }
-
-    .btn-primary:active:not(:disabled) {
-      transform: scale(0.985);
-    }
-
-    .btn-primary:disabled {
-      opacity: 1;
-      cursor: not-allowed;
-      background: #9aa5c0;
-    }
+    .btn-primary:not(:disabled) { background: var(--bci-blue); }
+    .btn-primary:hover:not(:disabled) { background: var(--bci-blue-dark); }
+    .btn-primary:active:not(:disabled) { transform: scale(0.985); }
+    .btn-primary:disabled { opacity: 1; cursor: not-allowed; background: #9aa5c0; }
 
     .login-create {
       text-align: center;
@@ -363,11 +318,7 @@
       color: var(--text-3);
     }
 
-    .login-create a {
-      color: var(--bci-blue);
-      font-weight: 600;
-      text-decoration: none;
-    }
+    .login-create a { color: var(--bci-blue); font-weight: 600; text-decoration: none; }
 
     .login-cards {
       display: flex;
@@ -383,7 +334,7 @@
       display: flex;
       gap: 14px;
       align-items: flex-start;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
 
     .login-info-icon {
@@ -397,15 +348,8 @@
       flex-shrink: 0;
     }
 
-    .login-info-icon.green {
-      background: #00843D;
-      color: #fff;
-    }
-
-    .login-info-icon.blue {
-      background: #0033A0;
-      color: #fff;
-    }
+    .login-info-icon.green { background: #00843D; color: #fff; }
+    .login-info-icon.blue  { background: #0033A0; color: #fff; }
 
     .login-info-title {
       font-size: 14px;
@@ -432,428 +376,126 @@
       margin-right: 8px;
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ══════════════════════════════════════════════════════
    DASHBOARD SHELL — BCI
 ══════════════════════════════════════════════════════ */
-
     .bci-topbar {
-      background: #3a3f47;
-      display: flex;
-      align-items: stretch;
-      padding: 0;
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      flex-shrink: 0;
-      min-height: 58px;
+      background: #3a3f47; display: flex; align-items: stretch;
+      padding: 0; position: sticky; top: 0; z-index: 200; flex-shrink: 0; min-height: 58px;
     }
+    .bci-topbar-logo { display: flex; align-items: center; gap: 4px; padding: 0 20px; flex-shrink: 0; }
+    .bci-topbar-logo .bci-logo-text { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
 
-    .bci-topbar-logo {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      padding: 0 20px;
-      flex-shrink: 0;
-    }
+    .bci-topbar-center { display: flex; align-items: center; justify-content: center; gap: 28px; flex: 1; }
+    .bci-topbar-link { display: flex; flex-direction: column; align-items: center; gap: 2px; color: rgba(255,255,255,0.8); font-size: 12px; cursor: pointer; text-decoration: none; }
+    .bci-topbar-link .tl-icon { font-size: 16px; }
+    .bci-topbar-link:hover { color: #fff; }
 
-    .bci-topbar-logo .bci-logo-text {
-      color: #fff;
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
+    .bci-topbar-right { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 2px; padding: 0 0 0 12px; flex-shrink: 0; }
+    .bci-session-timer { font-size: 10px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 4px; }
+    .bci-btn-salir { background: none; border: none; color: rgba(255,255,255,0.75); font-size: 11px; font-family: 'DM Sans', sans-serif; cursor: pointer; padding: 0; display: flex; align-items: center; gap: 3px; }
+    .bci-btn-salir:hover { color: #fff; }
 
-    .bci-topbar-center {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 28px;
-      flex: 1;
-    }
+    .bci-hola { background: #fff; padding: 6px 16px; font-size: 11px; color: #555; line-height: 1.3; text-align: center; white-space: nowrap; align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 110px; border-left: 1px solid rgba(255,255,255,0.1); }
+    .bci-hola span { display: block; font-weight: 700; font-size: 13px; color: #1a1a1a; }
 
-    .bci-topbar-link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 12px;
-      cursor: pointer;
-      text-decoration: none;
-    }
+    .bci-nav { background: #4a4f58; display: flex; padding: 0 8px; position: sticky; top: 58px; z-index: 199; flex-shrink: 0; }
+    .bci-nav-item { padding: 12px 18px; font-size: 13px; color: rgba(255,255,255,0.75); cursor: pointer; border-bottom: 3px solid transparent; transition: color 0.15s; white-space: nowrap; }
+    .bci-nav-item:hover, .bci-nav-item.active { color: #fff; }
+    .bci-nav-item.active { border-bottom-color: #fff; font-weight: 600; }
 
-    .bci-topbar-link .tl-icon {
-      font-size: 16px;
-    }
+    .bci-layout { display: flex; flex: 1; align-items: flex-start; background: #f0f1f3; }
 
-    .bci-topbar-link:hover {
-      color: #fff;
-    }
+    .bci-sidebar { width: 160px; flex-shrink: 0; background: #fff; border-right: 1px solid #d8dae0; min-height: calc(100vh - 100px); }
+    .bci-sidebar-controls { display: flex; justify-content: flex-end; gap: 0; border-bottom: 1px solid #d8dae0; }
+    .bci-sidebar-ctrl { padding: 3px 8px; font-size: 14px; cursor: pointer; color: #888; background: #f7f7f7; border-left: 1px solid #d8dae0; line-height: 1; }
+    .bci-sidebar-ctrl:hover { background: #ebebeb; color: #333; }
+    .bci-sidebar-section { border-bottom: 1px solid #d8dae0; }
+    .bci-sidebar-title { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; font-size: 12px; font-weight: 600; color: #1a1a1a; cursor: pointer; background: #f7f7f7; border-bottom: 1px solid #d8dae0; user-select: none; }
+    .bci-sidebar-title:hover { background: #ebebeb; }
+    .bci-sidebar-title .chev { font-size: 10px; color: #666; transition: transform 0.2s; }
+    .bci-sidebar-title.open .chev { transform: rotate(180deg); }
+    .bci-sidebar-links { display: none; flex-direction: column; }
+    .bci-sidebar-links.open { display: flex; }
+    .bci-sidebar-link { padding: 6px 12px; font-size: 12px; color: #333; cursor: pointer; border-bottom: 1px solid #ebebeb; text-decoration: none; display: block; }
+    .bci-sidebar-link:hover { background: #f0f4ff; }
+    .bci-sidebar-link.active { color: #0055b3; font-weight: 600; background: #fff; }
 
-    .bci-topbar-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 2px;
-      padding: 0 0 0 12px;
-      flex-shrink: 0;
-    }
+    .bci-main { flex: 1; padding: 20px 24px 48px; min-width: 0; background: #fff; }
+    .bci-page-title { font-size: 22px; font-weight: 400; color: #1a1a1a; margin-bottom: 3px; }
+    .bci-page-title strong { color: #0055b3; font-weight: 700; }
+    .bci-page-subtitle { font-size: 13px; color: #666; margin-bottom: 16px; }
 
-    .bci-session-timer {
-      font-size: 10px;
-      color: rgba(255, 255, 255, 0.6);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
+    /* ── COMPONENTES CONTENIDO ─────────────────────────────── */
+    .sec-label { font-size: 11px; font-weight: 700; color: #444; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .monto-pendiente { font-size: 13px; color: #444; margin-bottom: 10px; }
+    .monto-pendiente strong { font-size: 18px; font-weight: 700; color: #1a1a1a; display: inline; margin-left: 6px; }
 
-    .bci-btn-salir {
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 11px;
-      font-family: 'DM Sans', sans-serif;
-      cursor: pointer;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
+    .tabla { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 13px; border: 1px solid #c8ccd4; }
+    .tabla-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #e4e7ed; }
+    .tabla-row:last-child { border-bottom: none; }
+    .tr-label { padding: 7px 12px; color: #444; background: #f4f6f8; border-right: 1px solid #e4e7ed; }
+    .tr-value { padding: 7px 12px; font-weight: 600; color: #1a1a1a; background: #fff; }
 
-    .bci-btn-salir:hover {
-      color: #fff;
-    }
+    .hero-tinsa { border: 1px solid #c8ccd4; margin-bottom: 16px; background: #fff; }
+    .hero-tinsa-top { background: #3d5a8a; padding: 10px 14px; }
+    .hero-top-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .hero-powered { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+    .hero-badge { font-size: 11px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.1); padding: 2px 8px; border: 1px solid rgba(255,255,255,0.2); }
+    .hero-valor-label { font-size: 11px; color: rgba(255,255,255,0.65); margin-bottom: 2px; }
+    .hero-valor-uf { font-size: 24px; font-weight: 700; color: #fff; line-height: 1.1; }
+    .hero-valor-pesos { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 1px; }
+    .hero-delta { display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 600; color: #7de0a8; background: rgba(0,132,61,0.2); border: 1px solid rgba(0,132,61,0.35); padding: 2px 8px; }
 
-    .bci-hola {
-      background: #fff;
-      padding: 6px 16px;
-      font-size: 11px;
-      color: #555;
-      line-height: 1.3;
-      text-align: center;
-      white-space: nowrap;
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-width: 110px;
-      border-left: 1px solid rgba(255, 255, 255, 0.1);
-    }
+    .hero-tinsa-bottom { padding: 12px 14px; background: #fff; border-top: 1px solid #c8ccd4; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+    .hero-bottom-left { flex: 1; }
+    .hero-cta-label { font-size: 12px; color: #777; margin-bottom: 3px; }
+    .hero-cta-monto { font-size: 20px; font-weight: 700; color: #0055b3; line-height: 1.1; }
+    .hero-cta-pesos { font-size: 12px; color: #777; margin-top: 1px; }
+    .hero-cta-sub { font-size: 11px; color: #aaa; margin-top: 6px; line-height: 1.4; }
 
-    .bci-hola span {
-      display: block;
-      font-weight: 700;
-      font-size: 13px;
-      color: #1a1a1a;
-    }
+    .hero-bottom-right { flex-shrink: 0; text-align: center; border: 1px solid #c8ccd4; padding: 10px 14px; background: #f4f6f8; min-width: 170px; }
+    .hero-br-label { font-size: 11px; color: #777; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-br-cta { width: 100%; padding: 7px 12px; background: #0055b3; color: #fff; border: none; font-size: 12px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background 0.15s; }
+    .hero-br-cta:hover { background: #003d8f; }
 
-    /* nav */
-    .bci-nav {
-      background: #4a4f58;
-      display: flex;
-      padding: 0 8px;
-      position: sticky;
-      top: 58px;
-      z-index: 199;
-      flex-shrink: 0;
-    }
+    .card-section { background: #fff; border: 1px solid #c8ccd4; padding: 16px; margin-bottom: 16px; }
+    .section-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; gap: 12px; border-bottom: 1px solid #e4e7ed; padding-bottom: 10px; }
+    .section-head h3 { font-size: 14px; font-weight: 700; color: #1a1a1a; }
+    .section-sub { font-size: 12px; color: #777; margin-top: 2px; }
 
-    .bci-nav-item {
-      padding: 12px 18px;
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.75);
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: color 0.15s;
-      white-space: nowrap;
-    }
+    .acciones-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .accion-card { border: 1px solid #c8ccd4; padding: 14px; background: #fff; cursor: pointer; transition: background 0.12s; }
+    .accion-card:hover { background: #f4f6f8; }
+    .accion-icon { font-size: 20px; margin-bottom: 8px; }
+    .accion-titulo { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+    .accion-desc { font-size: 11px; color: #777; line-height: 1.4; margin-bottom: 10px; }
+    .accion-btn { font-size: 11px; font-weight: 600; color: #0055b3; background: none; border: 1px solid #0055b3; padding: 5px 10px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.12s; }
+    .accion-btn:hover { background: #0055b3; color: #fff; }
 
-    .bci-nav-item:hover {
-      color: #fff;
-    }
+    .proy-item { border: 1px solid #c8ccd4; margin-bottom: 6px; overflow: hidden; }
+    .proy-trigger { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; cursor: pointer; background: #fff; border-bottom: 1px solid transparent; transition: background 0.12s; gap: 12px; }
+    .proy-trigger:hover { background: #f4f6f8; }
+    .proy-trigger.open { background: #eaf0ff; border-bottom: 1px solid #c8ccd4; }
+    .proy-left { display: flex; align-items: center; gap: 10px; }
+    .proy-thumb { width: 56px; height: 40px; object-fit: cover; flex-shrink: 0; background: #eee; }
+    .proy-nombre { font-size: 13px; font-weight: 600; }
+    .proy-sub { font-size: 11px; color: #777; margin-top: 1px; }
+    .proy-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .proy-precio { font-size: 13px; font-weight: 600; text-align: right; }
+    .proy-canon { font-size: 11px; color: #aaa; margin-top: 1px; }
+    .proy-chevron { font-size: 11px; color: #aaa; transition: transform 0.2s; }
+    .proy-chevron.open { transform: rotate(180deg); color: #0055b3; }
 
-    .bci-nav-item.active {
-      color: #fff;
-      border-bottom-color: #fff;
-      font-weight: 600;
-    }
+    .proy-body { padding: 14px; background: #f4f6f8; display: grid; grid-template-columns: repeat(3, 1fr) 1.4fr; gap: 10px; align-items: start; }
+    .proy-stat { background: #fff; border: 1px solid #d4d8e2; padding: 10px 12px; }
+    .proy-stat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #aaa; margin-bottom: 4px; }
+    .proy-stat-val { font-size: 14px; font-weight: 700; }
+    .proy-stat-sub { font-size: 11px; color: #777; margin-top: 2px; }
 
-    /* layout */
-    .bci-layout {
-      display: flex;
-      flex: 1;
-      align-items: flex-start;
-      background: #f0f1f3;
-    }
-
-    /* sidebar */
-    .bci-sidebar {
-      width: 160px;
-      flex-shrink: 0;
-      background: #fff;
-      border-right: 1px solid #d8dae0;
-      min-height: calc(100vh - 100px);
-    }
-
-    /* los +/- de colapsar */
-    .bci-sidebar-controls {
-      display: flex;
-      justify-content: flex-end;
-      gap: 0;
-      border-bottom: 1px solid #d8dae0;
-    }
-
-    .bci-sidebar-ctrl {
-      padding: 3px 8px;
-      font-size: 14px;
-      cursor: pointer;
-      color: #888;
-      background: #f7f7f7;
-      border-left: 1px solid #d8dae0;
-      line-height: 1;
-    }
-
-    .bci-sidebar-ctrl:hover {
-      background: #ebebeb;
-      color: #333;
-    }
-
-    .bci-sidebar-section {
-      border-bottom: 1px solid #d8dae0;
-    }
-
-    .bci-sidebar-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #1a1a1a;
-      cursor: pointer;
-      background: #f7f7f7;
-      border-bottom: 1px solid #d8dae0;
-      user-select: none;
-    }
-
-    .bci-sidebar-title:hover {
-      background: #ebebeb;
-    }
-
-    .bci-sidebar-title .chev {
-      font-size: 10px;
-      color: #666;
-      transition: transform 0.2s;
-    }
-
-    .bci-sidebar-title.open .chev {
-      transform: rotate(180deg);
-    }
-
-    .bci-sidebar-links {
-      display: none;
-      flex-direction: column;
-    }
-
-    .bci-sidebar-links.open {
-      display: flex;
-    }
-
-    .bci-sidebar-link {
-      padding: 6px 12px;
-      font-size: 12px;
-      color: #333;
-      cursor: pointer;
-      border-bottom: 1px solid #ebebeb;
-      text-decoration: none;
-      display: block;
-    }
-
-    .bci-sidebar-link:hover {
-      background: #f0f4ff;
-    }
-
-    .bci-sidebar-link.active {
-      color: #0055b3;
-      font-weight: 600;
-      background: #fff;
-    }
-
-    .bci-sidebar-promo {
-      padding: 12px 10px;
-      text-align: center;
-      font-size: 11px;
-      color: #555;
-      line-height: 1.5;
-    }
-
-    .bci-sidebar-promo .promo-btn {
-      display: inline-block;
-      margin-top: 8px;
-      background: #00843D;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 5px 18px;
-      border: none;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      border-radius: 12px;
-    }
-
-    /* main — blanco directo, sin bordes ni margins */
-    .bci-main {
-      flex: 1;
-      padding: 20px 24px 48px;
-      min-width: 0;
-      background: #fff;
-    }
-
-    .bci-page-title {
-      font-size: 22px;
-      font-weight: 400;
-      color: #1a1a1a;
-      margin-bottom: 3px;
-    }
-
-    .bci-page-title strong {
-      color: #0055b3;
-      font-weight: 700;
-    }
-
-    .bci-page-subtitle {
-      font-size: 13px;
-      color: #666;
-      margin-bottom: 16px;
-    }
-
-    .creditos-selector {
-      display: none;
-    }
-
-    .cc-icon {
-      display: none;
-    }
-
-    .dots {
-      display: none;
-    }
-
-    .header {
-      display: none;
-    }
-
-    .tabs {
-      display: none;
-    }
-
-    .body {
-      display: contents;
-    }
-
-    /* ══════════════════════════════════════════════════════
-   CONTENIDO DASHBOARD — estilo BCI
-══════════════════════════════════════════════════════ */
-
-    /* ── datos del crédito ─────────────────────────────── */
-    .sec-label {
-      font-size: 11px;
-      font-weight: 700;
-      color: #444;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .monto-pendiente {
-      font-size: 13px;
-      color: #444;
-      margin-bottom: 10px;
-    }
-
-    .monto-pendiente strong {
-      font-size: 18px;
-      font-weight: 700;
-      color: #1a1a1a;
-      display: inline;
-      margin-left: 6px;
-    }
-
-    /* tabla estilo BCI — header azul, filas planas */
-    .tabla {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-      font-size: 13px;
-      border: 1px solid #c8ccd4;
-    }
-
-    .tabla-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid #e4e7ed;
-    }
-
-    .tabla-row:last-child {
-      border-bottom: none;
-    }
-
-    .tr-label {
-      padding: 7px 12px;
-      color: #444;
-      background: #f4f6f8;
-      border-right: 1px solid #e4e7ed;
-    }
-
-    .tr-value {
-      padding: 7px 12px;
-      font-weight: 600;
-      color: #1a1a1a;
-      background: #fff;
-    }
-
-    /* ── bloque Tinsa: header azul como BCI ─────────────── */
-    .hero-tinsa {
-      border: 1px solid #c8ccd4;
-      margin-bottom: 16px;
-      background: #fff;
-    }
-
-    .hero-tinsa-top {
-      background: #3d5a8a;
-      padding: 10px 14px;
-    }
-
-    .hero-top-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    .hero-powered {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.65);
-    }
-
-    .hero-badge {
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.7);
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2px 8px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #2d3748; color: #fff; padding: 10px 20px; font-size: 13px; font-weight: 500; z-index: 9999; border: 1px solid #4a5568; white-space: nowrap; }
 
     /* NUEVO: Badge FOMO (Requisito UX) */
     .badge-fomo {
@@ -866,375 +508,9 @@
     }
 
     @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.4);
-      }
-
-      70% {
-        box-shadow: 0 0 0 6px rgba(211, 47, 47, 0);
-      }
-
-      100% {
-        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0);
-      }
-    }
-
-    .hero-valor-label {
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.65);
-      margin-bottom: 2px;
-    }
-
-    .hero-valor-uf {
-      font-size: 24px;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.1;
-    }
-
-    .hero-valor-pesos {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.6);
-      margin-top: 1px;
-    }
-
-    .hero-delta {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #7de0a8;
-      background: rgba(0, 132, 61, 0.2);
-      border: 1px solid rgba(0, 132, 61, 0.35);
-      padding: 2px 8px;
-    }
-
-    .hero-tinsa-bottom {
-      padding: 12px 14px;
-      background: #fff;
-      border-top: 1px solid #c8ccd4;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .hero-bottom-left {
-      flex: 1;
-    }
-
-    .hero-cta-label {
-      font-size: 12px;
-      color: #777;
-      margin-bottom: 3px;
-    }
-
-    .hero-cta-monto {
-      font-size: 20px;
-      font-weight: 700;
-      color: #0055b3;
-      line-height: 1.1;
-    }
-
-    .hero-cta-pesos {
-      font-size: 12px;
-      color: #777;
-      margin-top: 1px;
-    }
-
-    .hero-cta-sub {
-      font-size: 11px;
-      color: #aaa;
-      margin-top: 6px;
-      line-height: 1.4;
-    }
-
-    .hero-bottom-right {
-      flex-shrink: 0;
-      text-align: center;
-      border: 1px solid #c8ccd4;
-      padding: 10px 14px;
-      background: #f4f6f8;
-      min-width: 170px;
-    }
-
-    .hero-br-label {
-      font-size: 11px;
-      color: #777;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .hero-br-cta {
-      width: 100%;
-      padding: 7px 12px;
-      background: #0055b3;
-      color: #fff;
-      border: none;
-      font-size: 12px;
-      font-weight: 600;
-      font-family: 'DM Sans', sans-serif;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-
-    .hero-br-cta:hover {
-      background: #003d8f;
-    }
-
-    /* ── secciones ───────────────────────────────────────── */
-    .card-section {
-      background: #fff;
-      border: 1px solid #c8ccd4;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 14px;
-      gap: 12px;
-      border-bottom: 1px solid #e4e7ed;
-      padding-bottom: 10px;
-    }
-
-    .section-head h3 {
-      font-size: 14px;
-      font-weight: 700;
-      color: #1a1a1a;
-    }
-
-    .section-sub {
-      font-size: 12px;
-      color: #777;
-      margin-top: 2px;
-    }
-
-    /* acciones */
-    .acciones-grid {
-      display: grid;
-      /* REQUISITO UX: Cambiado de 3 a 4 columnas para incluir Inversión */
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-
-    .accion-card {
-      border: 1px solid #c8ccd4;
-      padding: 14px;
-      background: #fff;
-      cursor: pointer;
-      transition: background 0.12s;
-    }
-
-    .accion-card:hover {
-      background: #f4f6f8;
-    }
-
-    .accion-icon {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .accion-titulo {
-      font-size: 13px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 4px;
-    }
-
-    .accion-desc {
-      font-size: 11px;
-      color: #777;
-      line-height: 1.4;
-      margin-bottom: 10px;
-    }
-
-    .accion-btn {
-      font-size: 11px;
-      font-weight: 600;
-      color: #0055b3;
-      background: none;
-      border: 1px solid #0055b3;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      transition: all 0.12s;
-    }
-
-    .accion-btn:hover {
-      background: #0055b3;
-      color: #fff;
-    }
-
-    /* proyectos */
-    .proy-item {
-      border: 1px solid #c8ccd4;
-      margin-bottom: 6px;
-      overflow: hidden;
-    }
-
-    .proy-trigger {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 14px;
-      cursor: pointer;
-      background: #fff;
-      border-bottom: 1px solid transparent;
-      transition: background 0.12s;
-      gap: 12px;
-    }
-
-    .proy-trigger:hover {
-      background: #f4f6f8;
-    }
-
-    .proy-trigger.open {
-      background: #eaf0ff;
-      border-bottom: 1px solid #c8ccd4;
-    }
-
-    .proy-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .proy-thumb {
-      width: 56px;
-      height: 40px;
-      object-fit: cover;
-      flex-shrink: 0;
-      background: #eee;
-    }
-
-    .proy-nombre {
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .proy-sub {
-      font-size: 11px;
-      color: #777;
-      margin-top: 1px;
-    }
-
-    .proy-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-shrink: 0;
-    }
-
-    .proy-precio {
-      font-size: 13px;
-      font-weight: 600;
-      text-align: right;
-    }
-
-    .proy-canon {
-      font-size: 11px;
-      color: #aaa;
-      margin-top: 1px;
-    }
-
-    .proy-chevron {
-      font-size: 11px;
-      color: #aaa;
-      transition: transform 0.2s;
-    }
-
-    .proy-chevron.open {
-      transform: rotate(180deg);
-      color: #0055b3;
-    }
-
-    .proy-body {
-      padding: 14px;
-      background: #f4f6f8;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr) 1.4fr;
-      gap: 10px;
-      align-items: start;
-    }
-
-    .proy-body-img {
-      width: 100%;
-      height: 130px;
-      object-fit: cover;
-      grid-column: 1 / -1;
-      display: block;
-    }
-
-    .proy-stat {
-      background: #fff;
-      border: 1px solid #d4d8e2;
-      padding: 10px 12px;
-    }
-
-    .proy-stat-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: #aaa;
-      margin-bottom: 4px;
-    }
-
-    .proy-stat-val {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .proy-stat-sub {
-      font-size: 11px;
-      color: #777;
-      margin-top: 2px;
-    }
-
-    .flujo {
-      background: #fff;
-      border: 1px solid #d4d8e2;
-      padding: 12px 14px;
-    }
-
-    .flujo-titulo {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: #aaa;
-      margin-bottom: 10px;
-    }
-
-    .flujo-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      padding: 4px 0;
-      border-bottom: 1px solid #f0f0f0;
-      align-items: center;
-    }
-
-    .flujo-row:last-child {
-      border-bottom: none;
-      font-weight: 700;
-      font-size: 13px;
-      margin-top: 3px;
-      padding-top: 7px;
-    }
-
-    .f-pos {
-      color: #00843D;
-      font-weight: 600;
-    }
-
-    .f-neg {
-      color: #cc0000;
-      font-weight: 600;
+      0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.4); }
+      70% { box-shadow: 0 0 0 6px rgba(211, 47, 47, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
     }
 
     /* ── HISTORIA / TIMELINE ── */
@@ -1305,7 +581,7 @@
       margin-top: 8px;
     }
 
-    /* ── CALCULADORA ── */
+    /* ── CALCULADORA DINÁMICA ── */
     .calc-box {
       background: #fff;
       border: 1px solid #c8ccd4;
@@ -1455,100 +731,25 @@
     }
 
     .plusvalia-content {
-      display: none;
-      /* Oculto por defecto */
+      display: none; /* Oculto por defecto */
       animation: fadeIn 0.6s ease-out forwards;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* toast */
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #2d3748;
-      color: #fff;
-      padding: 10px 20px;
-      font-size: 13px;
-      font-weight: 500;
-      z-index: 9999;
-      border: 1px solid #4a5568;
-      white-space: nowrap;
-    }
-
-    /* responsive */
     @media (max-width: 768px) {
-      .login-left {
-        display: none;
-      }
-
-      .login-right {
-        padding: 32px 24px;
-      }
-
-      .header,
-      .tabs,
-      .body {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .hero-tinsa {
-        padding: 28px 24px;
-      }
-
-      .hero-valor-uf {
-        font-size: 38px;
-      }
-
-      .hero-cta-monto {
-        font-size: 28px;
-      }
-
-      .hist-arrow {
-        display: none;
-      }
-
-      .c-border-l {
-        border-left: none;
-        padding-left: 0;
-        border-top: 1px solid #eee;
-        padding-top: 12px;
-        margin-top: 12px;
-      }
-
-      .liq-anchor {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .liq-anchor-right {
-        width: 100%;
-      }
-
-      .liq-vs-row {
-        flex-direction: column;
-      }
-
-      .acciones-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .proy-body {
-        grid-template-columns: 1fr 1fr;
-      }
+      .login-left { display: none; }
+      .login-right { padding: 32px 24px; }
+      .hero-tinsa { padding: 28px 24px; }
+      .hero-valor-uf { font-size: 38px; }
+      .hero-cta-monto { font-size: 28px; }
+      .hist-arrow { display: none; }
+      .c-border-l { border-left: none; padding-left: 0; border-top: 1px solid #eee; padding-top: 12px; margin-top: 12px; }
+      .acciones-grid { grid-template-columns: 1fr; }
+      .proy-body { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -1557,41 +758,29 @@
 
   <!-- ══ LOGIN ══════════════════════════════════════════════ -->
   <div class="page active" id="page-login">
-    <!-- navbar BCI -->
     <nav class="login-navbar">
       <div class="login-navbar-logo">
         <div class="bci-logo-mark">
-          <span class="dot-r"></span>
-          <span class="dot-y"></span>
-          <span class="tri"></span>
-          <span class="sq"></span>
+          <span class="dot-r"></span><span class="dot-y"></span><span class="tri"></span><span class="sq"></span>
         </div>
         <span class="bci-logo-text">Bci</span>
       </div>
       <div class="login-navbar-links">
-        <a href="#" class="active">PERSONAS</a>
-        <a href="#">EMPRESAS</a>
-        <a href="#">PYME</a>
-        <a href="#">PREFERENCIAL</a>
-        <a href="#">PRIVATE BANKING</a>
+        <a href="#" class="active">PERSONAS</a><a href="#">EMPRESAS</a><a href="#">PYME</a><a href="#">PREFERENCIAL</a>
       </div>
       <div class="login-navbar-right">SALIR ⬡</div>
     </nav>
 
-    <!-- body login -->
     <div class="login-body">
       <div class="login-box">
         <div class="login-box-inner">
           <div class="login-logo-center">
-            <div class="bci-logo-mark">
-              <span class="dot-r"></span>
-              <span class="dot-y"></span>
-              <span class="tri"></span>
-              <span class="sq"></span>
-            </div>
+            <div class="bci-logo-mark"><span class="dot-r"></span><span class="dot-y"></span><span class="tri"></span><span class="sq"></span></div>
           </div>
           <h2>Ingresa a tu Banco en línea<strong>Personas</strong></h2>
-          <p class="login-subtitle"></p>
+          
+          <!-- Hint visual para pruebas -->
+          <p style="text-align:center; font-size:11px; color:#777; margin-bottom: 12px;">RUTs de prueba: 15550449-8, 12287071-5, 13870778-4</p>
 
           <div class="field">
             <div class="field-floating" id="field-rut-wrap">
@@ -1609,46 +798,18 @@
           </div>
 
           <div class="login-forgot"><a href="#">¿Olvidaste tu clave de internet?</a></div>
-
           <button class="btn-primary" id="btn-ingresar" onclick="handleLogin()" disabled>INGRESAR</button>
         </div>
-        <div class="login-create">
-          <a href="#">🔒 Crea tu clave de internet</a>
-        </div>
-      </div>
-
-      <div class="login-cards">
-        <div class="login-info-card">
-          <div class="login-info-icon green">🔒</div>
-          <div>
-            <div class="login-info-title">Mantente atento a nuevas estafas telefónicas</div>
-            <div class="login-info-text">Si recibes una llamada de un supuesto ejecutivo de prevención de fraudes, no
-              caigas en la estafa. Recuerda que Bci <strong>nunca te pedirá</strong> tus claves, ni por voz, ni
-              digitando en el teclado de tu celular.</div>
-          </div>
-        </div>
-        <div class="login-info-card">
-          <div class="login-info-icon blue">📱</div>
-          <div>
-            <div class="login-info-title">Utiliza tus notificaciones</div>
-            <div class="login-info-text">Mantente siempre informado sobre los pagos que realices con tus cuentas y
-              tarjetas. Si no reconoces algún movimiento, contacta a un ejecutivo de forma inmediata.</div>
-          </div>
-        </div>
+        <div class="login-create"><a href="#">🔒 Crea tu clave de internet</a></div>
       </div>
     </div>
   </div>
 
   <!-- ══ DASHBOARD BCI ══════════════════════════════════════ -->
   <div class="page" id="page-dash">
-
-    <!-- topbar -->
     <div class="bci-topbar">
       <div class="bci-topbar-logo">
-        <div class="bci-logo-mark">
-          <span class="dot-r"></span><span class="dot-y"></span>
-          <span class="tri"></span><span class="sq"></span>
-        </div>
+        <div class="bci-logo-mark"><span class="dot-r"></span><span class="dot-y"></span><span class="tri"></span><span class="sq"></span></div>
         <span class="bci-logo-text">Bci</span>
       </div>
       <div class="bci-topbar-center">
@@ -1662,7 +823,6 @@
       <div class="bci-hola">Hola,<span id="dash-rut">—</span></div>
     </div>
 
-    <!-- nav principal -->
     <nav class="bci-nav">
       <div class="bci-nav-item">Mi Banco</div>
       <div class="bci-nav-item">Inversiones</div>
@@ -1670,55 +830,25 @@
       <div class="bci-nav-item">Tarjetas</div>
       <div class="bci-nav-item active">Créditos</div>
       <div class="bci-nav-item">Pagos y Recargas</div>
-      <div class="bci-nav-item">Seguros</div>
     </nav>
 
-    <!-- layout -->
     <div class="bci-layout">
-
-      <!-- sidebar -->
       <aside class="bci-sidebar">
-        <div class="bci-sidebar-controls">
-          <span class="bci-sidebar-ctrl">−</span>
-          <span class="bci-sidebar-ctrl">+</span>
+        <div class="bci-sidebar-controls"><span class="bci-sidebar-ctrl">−</span><span class="bci-sidebar-ctrl">+</span></div>
+        <div class="bci-sidebar-section">
+          <div class="bci-sidebar-title" onclick="toggleSidebar(this)">Créditos de Consumo <span class="chev">▼</span></div>
         </div>
         <div class="bci-sidebar-section">
-          <div class="bci-sidebar-title" onclick="toggleSidebar(this)">
-            Créditos de Consumo <span class="chev">▼</span>
-          </div>
-          <div class="bci-sidebar-links">
-            <a class="bci-sidebar-link" href="#">Simular y pedir un Crédito</a>
-            <a class="bci-sidebar-link" href="#">Consolida tu Deuda</a>
-            <a class="bci-sidebar-link" href="#">Baja tu cuota y ahorra <span
-                style="background:#e63329;color:#fff;font-size:9px;padding:1px 5px;border-radius:3px;margin-left:3px;">Nuevo</span></a>
-            <a class="bci-sidebar-link" href="#">Mis Créditos</a>
-            <a class="bci-sidebar-link" href="#">Pagar Crédito</a>
-            <a class="bci-sidebar-link" href="#">Autoriza tu Crédito</a>
-            <a class="bci-sidebar-link" href="#">Créditos por abonar a tu cuenta</a>
-            <a class="bci-sidebar-link" href="#">Certificados</a>
-          </div>
-        </div>
-        <div class="bci-sidebar-section">
-          <div class="bci-sidebar-title open" onclick="toggleSidebar(this)">
-            Crédito Hipotecario <span class="chev">▼</span>
-          </div>
+          <div class="bci-sidebar-title open" onclick="toggleSidebar(this)">Crédito Hipotecario <span class="chev">▼</span></div>
           <div class="bci-sidebar-links open">
             <a class="bci-sidebar-link" href="#">Simular y obtener preaprobación</a>
             <a class="bci-sidebar-link" href="#">Pagar Dividendo</a>
-            <a class="bci-sidebar-link" href="#">Seguimiento de solicitud</a>
-            <a class="bci-sidebar-link" href="#">Dividendos pagados</a>
             <a class="bci-sidebar-link active" href="#">Mi Crédito</a>
-            <a class="bci-sidebar-link" href="#">Cupón de pago</a>
             <a class="bci-sidebar-link" href="#">Certificados para SII</a>
           </div>
         </div>
-        <div class="bci-sidebar-promo">
-          <div>Gana más con esta tasa preferencial en Depósitos a Plazo, una alternativa de bajo riesgo</div>
-          <button class="promo-btn">Simular</button>
-        </div>
       </aside>
 
-      <!-- contenido principal -->
       <main class="bci-main">
         <h1 class="bci-page-title">Mi <strong>Crédito Hipotecario</strong></h1>
         <div class="bci-page-subtitle">Seleccione el crédito hipotecario sobre el cual desea hacer la consulta.</div>
@@ -1726,35 +856,31 @@
         <div style="background:#f7f8fa;border:1px solid #c8cdd8;padding:12px 16px;margin-bottom:20px;font-size:13px;">
           Seleccione <strong>el Crédito Hipotecario</strong> sobre el cual desea hacer la consulta.
           <div style="margin-top:10px;">
-            <select id="creditos-selector" onchange="selectCredito(parseInt(this.value))"
-              style="font-size:13px;padding:5px 8px;border:1px solid #a0a8b8;border-radius:2px;min-width:280px;font-family:Arial,sans-serif;color:#333;">
+            <select id="creditos-selector" onchange="selectCredito(parseInt(this.value))" style="font-size:13px;padding:5px 8px;border:1px solid #a0a8b8;border-radius:2px;min-width:280px;font-family:Arial,sans-serif;color:#333;">
             </select>
           </div>
         </div>
-        <div class="dots"></div>
 
         <div id="content"></div>
       </main>
-
     </div>
   </div>
 
   <script>
-    /* ── CREDENCIALES ────────────────────────────────────── */
+    /* ── CREDENCIALES Y NUEVOS CLIENTES (DATOS REALES) ───── */
     const CLAVE = 'Tinsa0987'
 
-    // Mapa rut -> índices de créditos en CREDITOS[]
     const CLIENTES = {
-      '14406302-3': [0, 1],
-      '06505564-3': [2],
-      '13639004-k': [3]
+      '15550449-8': [0],
+      '12287071-5': [1],
+      '13870778-4': [2]
     }
 
-    /* ── LOGIN ───────────────────────────────────────────── */
-    const rutEl = document.getElementById('inp-rut')
-    const claveEl = document.getElementById('inp-clave')
-    const btnEl = document.getElementById('btn-ingresar')
-    const errEl = document.getElementById('login-error')
+    /* ── LOGIN LOGIC ─────────────────────────────────────── */
+    const rutEl = document.getElementById('inp-rut');
+    const claveEl = document.getElementById('inp-clave');
+    const btnEl = document.getElementById('btn-ingresar');
+    const errEl = document.getElementById('login-error');
 
     function formatRut(v) {
       const c = v.replace(/[^0-9kK]/g, '')
@@ -1798,7 +924,7 @@
           errEl.textContent = 'RUT o clave incorrectos. Verifica tus datos.'
           document.getElementById('field-rut-wrap').classList.add('err')
           document.getElementById('field-clave-wrap').classList.add('err')
-          btnEl.innerHTML = 'Ingresar'
+          btnEl.innerHTML = 'INGRESAR'
           btnEl.disabled = false
         }
       }, 900)
@@ -1809,7 +935,7 @@
       errEl.textContent = ''
       document.getElementById('field-rut-wrap')?.classList.remove('err')
       document.getElementById('field-clave-wrap')?.classList.remove('err')
-      btnEl.innerHTML = 'Ingresar'; btnEl.disabled = true
+      btnEl.innerHTML = 'INGRESAR'; btnEl.disabled = true
       showPage('page-login')
     }
 
@@ -1818,165 +944,71 @@
       document.getElementById(id).classList.add('active')
     }
 
-    /* ── DATOS ───────────────────────────────────────────── */
-    const UF = 39841.72
+    function toggleSidebar(el) {
+      el.classList.toggle('open');
+      const links = el.nextElementSibling;
+      if (links) links.classList.toggle('open');
+    }
+
+    /* ── DATOS INYECTADOS Y MATEMÁTICAS (Calculadora) ────── */
+    const UF = 39841.72 
+    
+    // Función pmt para cálculo real de cuotas hipotecarias (como en Excel)
+    function pmt(rate, nper, pv) {
+      if (rate === 0) return (pv / nper);
+      return (pv * rate * Math.pow(1 + rate, nper)) / (Math.pow(1 + rate, nper) - 1);
+    }
 
     const CREDITOS = [
       {
-        // rol 630444-1 · id_solicitud 444467 · cliente 14406302-3
-        detalle: { pendiente: 'UF 1.545,48', pendiente_num: 1545.48, otorgado: 'UF 1.960,50', otorgado_num: 1960.50, dividendo: 'UF 10,24', dividendo_num: 10.24, tasa: '4.41%', tasa_num: 4.41, cobertura: '75%' },
-        val: {
-          orig: 'UF 2.614,00', orig_num: 2614, orig_fecha: '2021-02-11',
-          actual_num: 2746, actual: 'UF 2.746,00', actual_fecha: '2026-03-06',
-          delta_uf: '+132,00 UF', delta_pct: '+5,05%', pos: true
-        },
-        liq: {
-          disponible_num: 651.32,
-          disponible: 'UF 651,32',
-          rehip_tasa: 4.41,
-          rehip_plazo: '20 años',
-          rehip_cuota_num: 4.09,
-          rehip_cuota: 'UF 4,09',
-          rehip_pesos: '$162.951',
-          con_equivalente_num: null,
-          ahorro_uf: '+UF 14,65',
-          ahorro_pesos: '$583.581'
-        },
-        zona: 'Comuna 149',
-        proy: [
-          { img: 'public/proyectos-inmobiliarios/apartment1.jpg', n: 'Edificio Parque Central', t: 'Departamento 2D/2B', m: 45, precio: 'UF 600,00', pp: '$23.905.032', canon: 'UF 2,70', cp: '$107.573 / mes', q: 'UF 4,09', g: 'UF −1,39' },
-          { img: 'public/proyectos-inmobiliarios/apartment2.jpg', n: 'Condominio Los Aromos', t: 'Departamento 1D/1B', m: 38, precio: 'UF 620,00', pp: '$24.701.864', canon: 'UF 2,79', cp: '$111.118 / mes', q: 'UF 4,09', g: 'UF −1,30' },
-          { img: 'public/proyectos-inmobiliarios/house1.jpg', n: 'Casa Jardín Sur', t: 'Casa 2D/1B', m: 55, precio: 'UF 640,00', pp: '$25.498.688', canon: 'UF 2,88', cp: '$114.744 / mes', q: 'UF 4,09', g: 'UF −1,21' },
-        ]
+        id_solicitud: '167303',
+        detalle: { pendiente: 'UF 941,29', pendiente_num: 941.29, otorgado: 'UF 1.973,25', dividendo: 'UF 12,44', dividendo_num: 12.44, tasa: '4.46%', tasa_num: 4.46, cobertura: '75%' },
+        val: { orig: 'UF 2.631,00', orig_num: 2631, orig_fecha: '2013-08-15', actual_num: 4551.0, actual: 'UF 4.551,00', actual_fecha: '2026-03-06', delta_uf: '+1.920,00 UF', delta_pct: '+72.9%' },
+        liq: { saldo_insoluto: 941.29, rehip_tasa: 4.46 },
+        proy: [ { img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=300&q=80', n: 'Edificio Los Aromos', t: 'Depto 2D/2B', m: 45, precio: 'UF 2.100', pp: '$83.667.612', canon: 'UF 9,50', cp: '$378.496 / mes' } ]
       },
       {
-        // rol 1920836-4 · id_solicitud 603821 · cliente 14406302-3
-        detalle: { pendiente: 'UF 3.930,43', pendiente_num: 3930.43, otorgado: 'UF 4.004,70', otorgado_num: 4004.70, dividendo: 'UF 25,01', dividendo_num: 25.01, tasa: '4.35%', tasa_num: 4.35, cobertura: '74%' },
-        val: {
-          orig: 'UF 5.721,00', orig_num: 5721, orig_fecha: '2025-08-13',
-          actual_num: 5838, actual: 'UF 5.838,00', actual_fecha: '2026-03-06',
-          delta_uf: '+117,00 UF', delta_pct: '+2,04%', pos: true
-        },
-        liq: {
-          disponible_num: 739.97,
-          disponible: 'UF 739,97',
-          rehip_tasa: 4.35,
-          rehip_plazo: '20 años',
-          rehip_cuota_num: 4.63,
-          rehip_cuota: 'UF 4,63',
-          rehip_pesos: '$184.467',
-          con_equivalente_num: null,
-          ahorro_uf: '+UF 16,61',
-          ahorro_pesos: '$661.549'
-        },
-        zona: 'Comuna 364',
-        proy: [
-          { img: 'public/proyectos-inmobiliarios/apartment1.jpg', n: 'Edificio Parque Central', t: 'Departamento 2D/2B', m: 45, precio: 'UF 700,00', pp: '$27.889.204', canon: 'UF 3,15', cp: '$125.501 / mes', q: 'UF 4,63', g: 'UF −1,48' },
-          { img: 'public/proyectos-inmobiliarios/apartment2.jpg', n: 'Condominio Los Aromos', t: 'Departamento 1D/1B', m: 40, precio: 'UF 720,00', pp: '$28.685.918', canon: 'UF 3,24', cp: '$129.087 / mes', q: 'UF 4,63', g: 'UF −1,39' },
-          { img: 'public/proyectos-inmobiliarios/house1.jpg', n: 'Casa Jardín Sur', t: 'Casa 3D/2B', m: 72, precio: 'UF 735,00', pp: '$29.283.664', canon: 'UF 3,31', cp: '$131.873 / mes', q: 'UF 4,63', g: 'UF −1,32' },
-        ]
+        id_solicitud: '162218',
+        detalle: { pendiente: 'UF 991,55', pendiente_num: 991.55, otorgado: 'UF 2.116,80', dividendo: 'UF 13,36', dividendo_num: 13.36, tasa: '4.48%', tasa_num: 4.48, cobertura: '80%' },
+        val: { orig: 'UF 2.646,00', orig_num: 2646, orig_fecha: '2013-06-10', actual_num: 3619.0, actual: 'UF 3.619,00', actual_fecha: '2026-03-06', delta_uf: '+973,00 UF', delta_pct: '+36.7%' },
+        liq: { saldo_insoluto: 991.55, rehip_tasa: 4.48 },
+        proy: [ { img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=300&q=80', n: 'Condominio Sur', t: 'Casa 3D/2B', m: 70, precio: 'UF 2.800', pp: '$111.556.816', canon: 'UF 12,50', cp: '$498.021 / mes' } ]
       },
       {
-        // rol 1920836-4 · id_solicitud 579272 · cliente 06505564-3
-        detalle: { pendiente: 'UF 4.020,17', pendiente_num: 4020.17, otorgado: 'UF 4.200,00', otorgado_num: 4200.00, dividendo: 'UF 26,37', dividendo_num: 26.37, tasa: '4.41%', tasa_num: 4.41, cobertura: '70%' },
-        val: {
-          orig: 'UF 6.000,00', orig_num: 6000, orig_fecha: '2024-11-11',
-          actual_num: 5811, actual: 'UF 5.811,00', actual_fecha: '2026-03-06',
-          delta_uf: '−189,00 UF', delta_pct: '−3,15%', pos: false
-        },
-        liq: {
-          disponible_num: 628.63,
-          disponible: 'UF 628,63',
-          rehip_tasa: 4.41,
-          rehip_plazo: '20 años',
-          rehip_cuota_num: 3.95,
-          rehip_cuota: 'UF 3,95',
-          rehip_pesos: '$157.375',
-          con_equivalente_num: null,
-          ahorro_uf: '+UF 14,16',
-          ahorro_pesos: '$564.017'
-        },
-        zona: 'Comuna 364',
-        proy: [
-          { img: 'public/proyectos-inmobiliarios/apartment1.jpg', n: 'Edificio Parque Central', t: 'Departamento 2D/2B', m: 45, precio: 'UF 600,00', pp: '$23.905.032', canon: 'UF 2,70', cp: '$107.573 / mes', q: 'UF 3,95', g: 'UF −1,25' },
-          { img: 'public/proyectos-inmobiliarios/apartment2.jpg', n: 'Condominio Los Aromos', t: 'Departamento 1D/1B', m: 38, precio: 'UF 620,00', pp: '$24.701.864', canon: 'UF 2,79', cp: '$111.118 / mes', q: 'UF 3,95', g: 'UF −1,16' },
-          { img: 'public/proyectos-inmobiliarios/house1.jpg', n: 'Casa Jardín Sur', t: 'Casa 2D/1B', m: 55, precio: 'UF 640,00', pp: '$25.498.688', canon: 'UF 2,88', cp: '$114.744 / mes', q: 'UF 3,95', g: 'UF −1,07' },
-        ]
-      },
-      {
-        // rol 1940198-1 · id_solicitud 593011 · cliente 13639004-k
-        detalle: { pendiente: 'UF 1.922,25', pendiente_num: 1922.25, otorgado: 'UF 1.980,00', otorgado_num: 1980.00, dividendo: 'UF 12,43', dividendo_num: 12.43, tasa: '4.41%', tasa_num: 4.41, cobertura: '80%' },
-        val: {
-          orig: 'UF 2.575,00', orig_num: 2575, orig_fecha: '2025-04-23',
-          actual_num: 3188, actual: 'UF 3.188,00', actual_fecha: '2026-03-06',
-          delta_uf: '+613,00 UF', delta_pct: '+23,81%', pos: true
-        },
-        liq: {
-          disponible_num: 628.15,
-          disponible: 'UF 628,15',
-          rehip_tasa: 4.41,
-          rehip_plazo: '20 años',
-          rehip_cuota_num: 3.94,
-          rehip_cuota: 'UF 3,94',
-          rehip_pesos: '$156.974',
-          con_equivalente_num: null,
-          ahorro_uf: '+UF 14,12',
-          ahorro_pesos: '$562.564'
-        },
-        zona: 'Comuna 152',
-        proy: [
-          { img: 'public/proyectos-inmobiliarios/apartment1.jpg', n: 'Edificio Parque Central', t: 'Departamento 2D/2B', m: 45, precio: 'UF 600,00', pp: '$23.905.032', canon: 'UF 2,70', cp: '$107.573 / mes', q: 'UF 3,94', g: 'UF −1,24' },
-          { img: 'public/proyectos-inmobiliarios/apartment2.jpg', n: 'Condominio Los Aromos', t: 'Departamento 1D/1B', m: 38, precio: 'UF 620,00', pp: '$24.701.864', canon: 'UF 2,79', cp: '$111.118 / mes', q: 'UF 3,94', g: 'UF −1,15' },
-          { img: 'public/proyectos-inmobiliarios/house1.jpg', n: 'Casa Jardín Sur', t: 'Casa 2D/1B', m: 55, precio: 'UF 640,00', pp: '$25.498.688', canon: 'UF 2,88', cp: '$114.744 / mes', q: 'UF 3,94', g: 'UF −1,06' },
-        ]
+        id_solicitud: '175930',
+        detalle: { pendiente: 'UF 893,23', pendiente_num: 893.23, otorgado: 'UF 1.807,20', dividendo: 'UF 11,36', dividendo_num: 11.36, tasa: '4.43%', tasa_num: 4.43, cobertura: '80%' },
+        val: { orig: 'UF 2.356,00', orig_num: 2356, orig_fecha: '2013-12-06', actual_num: 4543.0, actual: 'UF 4.543,00', actual_fecha: '2026-03-06', delta_uf: '+2.187,00 UF', delta_pct: '+92.8%' },
+        liq: { saldo_insoluto: 893.23, rehip_tasa: 4.43 },
+        proy: [ { img: 'https://images.unsplash.com/photo-1502672260266-1c1e5240980c?w=300&q=80', n: 'Parque Central', t: 'Depto 1D/1B', m: 35, precio: 'UF 1.950', pp: '$77.691.354', canon: 'UF 8,50', cp: '$338.654 / mes' } ]
       }
     ]
 
-    // Calcula cuánto te prestarían en consumo con la misma cuota rehipoteca
-    function calcConEquivalente(cuotaUF) {
-      const r = 0.241 / 12
-      const n = 60
-      const factor = (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1)
-      const monto = cuotaUF / factor
-      return monto
+    function getFomoDate() {
+      const d = new Date(); d.setDate(d.getDate() + 30);
+      return d.toLocaleDateString('es-CL', { day: '2-digit', month: 'short', year: 'numeric' });
     }
 
-    CREDITOS.forEach(c => {
-      c.liq.con_equivalente_num = calcConEquivalente(c.liq.rehip_cuota_num)
-    })
-
-    /* ── ESTADO ──────────────────────────────────────────── */
-    let currentCreditos = [0, 1]
-    let cur = 0
-    const openSet = new Set()
+    let currentCreditos = [0], cur = 0; const openSet = new Set();
 
     function renderSelector() {
       const sel = document.getElementById('creditos-selector')
-      sel.innerHTML = currentCreditos.map((ci, i) =>
-        `<option value="${i}">N° ${String(ci + 1).padStart(7, '0')} · Crédito Hipotecario</option>`
-      ).join('')
+      sel.innerHTML = currentCreditos.map((ci, index) => {
+        const sol = CREDITOS[ci].id_solicitud;
+        return `<option value="${index}">N° ${sol.padStart(7,'0')} · Crédito Hipotecario</option>`
+      }).join('')
       sel.selectedIndex = 0
     }
 
     function selectCredito(i) {
-      const idx = parseInt(i)
-      if (isNaN(idx) || idx < 0 || idx >= currentCreditos.length) return
-      cur = idx; openSet.clear()
-      // sincronizar el select visualmente
-      const sel = document.getElementById('creditos-selector')
-      if (sel) sel.value = String(idx)
+      cur = parseInt(i); openSet.clear();
+      document.getElementById('creditos-selector').value = String(cur);
       render()
     }
 
     function toggleProy(i) {
-      const body = document.getElementById('pb' + i)
-      const chev = document.getElementById('pc' + i)
-      const trig = document.getElementById('pt' + i)
-      if (openSet.has(i)) {
-        openSet.delete(i); body.style.display = 'none'; chev.classList.remove('open'); trig.classList.remove('open')
-      } else {
-        openSet.add(i); body.style.display = 'grid'; chev.classList.add('open'); trig.classList.add('open')
-      }
+      const body = document.getElementById('pb' + i); const chev = document.getElementById('pc' + i)
+      if (openSet.has(i)) { openSet.delete(i); body.style.display = 'none'; chev.classList.remove('open'); } 
+      else { openSet.add(i); body.style.display = 'grid'; chev.classList.add('open'); }
     }
 
     let tt
@@ -1984,24 +1016,15 @@
       clearTimeout(tt); document.querySelector('.toast')?.remove()
       const el = document.createElement('div')
       el.className = 'toast'
-      el.textContent = `✅ Solicitud de "${t}" enviada — tu ejecutivo te contactará pronto`
+      el.textContent = `✅ Simulación "${t}" iniciada — tu ejecutivo te contactará hoy`
       document.body.appendChild(el)
       tt = setTimeout(() => el.remove(), 3500)
     }
 
-    function fmtUF(n) {
-      return 'UF ' + n.toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-    }
-    function fmtPesos(uf) {
-      return '$' + Math.round(uf * UF).toLocaleString('es-CL')
-    }
+    function fmtUF(n) { return 'UF ' + n.toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }
+    function fmtPesos(uf) { return '$' + Math.round(uf * UF).toLocaleString('es-CL') }
 
-    /* ── LÓGICA CALCULADORA ──────────────────────────────── */
-    function pmt(rate, nper, pv) {
-      if (rate === 0) return -(pv / nper);
-      return (pv * rate * Math.pow(1 + rate, nper)) / (Math.pow(1 + rate, nper) - 1);
-    }
-
+    /* ── LOGICA DE CALCULADORA Y TEASER ── */
     function initCalculadora() {
       const sliderMonto = document.getElementById('calc-slider');
       const sliderPlazo = document.getElementById('calc-plazo');
@@ -2017,23 +1040,18 @@
     function actualizarCalculadora(montoExtraUF, plazoAnios) {
       const c = CREDITOS[currentCreditos[cur]];
       const d = c.detalle;
-      const l = c.liq;
 
-      // 0. Actualizar etiquetas de los sliders
+      // Actualizar etiquetas
       document.getElementById('lbl-monto').textContent = fmtUF(montoExtraUF);
       document.getElementById('lbl-plazo').textContent = plazoAnios + ' años';
-
-      // 1. Actualizar UI de Monto Solicitado
       document.getElementById('calc-monto-solicitado').textContent = fmtUF(montoExtraUF);
       document.getElementById('calc-monto-solicitado-pesos').textContent = fmtPesos(montoExtraUF);
 
-      // 2. Cálculos Rehipoteca (Plazo Dinámico)
+      // Cálculos Rehipoteca
       const nuevoSaldoTotal = d.pendiente_num + montoExtraUF;
       const tasaMensual = d.tasa_num / 12 / 100;
-      const mesesPlazo = plazoAnios * 12; // AHORA ES DINÁMICO SEGÚN EL SLIDER
+      const mesesPlazo = plazoAnios * 12;
       const nuevoDividendo = pmt(tasaMensual, mesesPlazo, nuevoSaldoTotal);
-
-      // LA CORRECCIÓN: Calculamos la diferencia exacta (positiva o negativa)
       const deltaDividendo = nuevoDividendo - d.dividendo_num;
 
       document.getElementById('calc-nuevo-saldo').textContent = fmtUF(nuevoSaldoTotal);
@@ -2042,21 +1060,20 @@
       const calcAumentoDiv = document.getElementById('calc-aumento-div');
       if (deltaDividendo > 0.01) {
         calcAumentoDiv.textContent = '+' + fmtUF(deltaDividendo) + ' extra mensual';
-        calcAumentoDiv.style.color = '#cc0000'; // rojo si sube
+        calcAumentoDiv.style.color = '#cc0000';
       } else if (deltaDividendo < -0.01) {
         calcAumentoDiv.textContent = '¡Baja ' + fmtUF(Math.abs(deltaDividendo)) + ' mensual!';
-        calcAumentoDiv.style.color = '#00843D'; // verde si baja
+        calcAumentoDiv.style.color = '#00843D';
       } else {
         calcAumentoDiv.textContent = 'Mantiene mismo valor';
-        calcAumentoDiv.style.color = '#777'; // gris si queda igual
+        calcAumentoDiv.style.color = '#777';
       }
 
-      // 3. Cálculos Crédito de Consumo (El competidor para el mismo monto - Fijo a 5 años)
-      const tasaConsumoMensual = 0.241 / 12; // 24.1% anual referencial mercado
-      const mesesConsumo = 60; // 5 años estándar de consumo
-      const cuotaConsumoAprox = pmt(tasaConsumoMensual, mesesConsumo, montoExtraUF);
+      // Consumo Equivalente a 5 años (24.1%)
+      const tasaConsumoMensual = 0.241 / 12; 
+      const cuotaConsumoAprox = pmt(tasaConsumoMensual, 60, montoExtraUF);
 
-      // 4. Actualizar Tabla Comparativa Dinámica
+      // Actualizar Tabla de Anclaje Dinámica
       if (document.getElementById('comp-monto-ancla')) {
         document.getElementById('comp-monto-ancla').textContent = fmtUF(montoExtraUF);
       }
@@ -2068,313 +1085,274 @@
 
       if (document.getElementById('comp-cuota-hip')) {
         const lblHip = document.getElementById('comp-cuota-hip-label');
-
         if (deltaDividendo > 0.01) {
-          lblHip.innerHTML = 'Tu dividendo solo sube en:<br><span id="comp-plazo-hip" style="font-size:10px;">a ' + plazoAnios + ' años y tasa ' + d.tasa + '</span>';
+          lblHip.innerHTML = 'Tu dividendo solo sube en:<br><span style="font-size:10px;">a ' + plazoAnios + ' años y tasa ' + d.tasa + '</span>';
           document.getElementById('comp-cuota-hip').textContent = '+' + fmtUF(deltaDividendo);
           document.getElementById('comp-cuota-hip-pesos').textContent = '+' + fmtPesos(deltaDividendo);
         } else if (deltaDividendo < -0.01) {
-          lblHip.innerHTML = '¡Tu dividendo <strong>BAJA</strong> en:<br><span id="comp-plazo-hip" style="font-size:10px;">a ' + plazoAnios + ' años y tasa ' + d.tasa + '</span>';
+          lblHip.innerHTML = '¡Tu dividendo <strong>BAJA</strong> en:<br><span style="font-size:10px;">a ' + plazoAnios + ' años y tasa ' + d.tasa + '</span>';
           document.getElementById('comp-cuota-hip').textContent = '-' + fmtUF(Math.abs(deltaDividendo));
           document.getElementById('comp-cuota-hip-pesos').textContent = '-' + fmtPesos(Math.abs(deltaDividendo));
         } else {
-          lblHip.innerHTML = 'Tu dividendo <strong>NO SUBE</strong><br><span id="comp-plazo-hip" style="font-size:10px;">a ' + plazoAnios + ' años y tasa ' + d.tasa + '</span>';
+          lblHip.innerHTML = 'Tu dividendo <strong>NO SUBE</strong><br><span style="font-size:10px;">a ' + plazoAnios + ' años y tasa ' + d.tasa + '</span>';
           document.getElementById('comp-cuota-hip').textContent = 'UF 0,00';
           document.getElementById('comp-cuota-hip-pesos').textContent = '$0';
         }
       }
     }
 
-    // Función para revelar el contenido mágico
     function revelarPlusvalia() {
       const teaser = document.getElementById('teaser-plusvalia');
       const content = document.getElementById('plusvalia-secreta');
-
       if (teaser && content) {
         teaser.style.display = 'none';
         content.style.display = 'block';
-
-        // Pequeño delay visual y luego scroll suave hacia el contenido
         setTimeout(() => {
           content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Nos aseguramos de que la calculadora se dibuje bien tras mostrarse
-          initCalculadora();
+          initCalculadora(); // Inicializa sliders luego de ser visibles
         }, 50);
       }
     }
 
-    /* ── RENDER ──────────────────────────────────────────── */
+    /* ── RENDER PRINCIPAL UX TIER 1 ──────────────────────── */
     function render() {
-      // UX/BA REQUISITO: CÁLCULO DINÁMICO DE FOMO (30 días desde el sistema local)
-      const hoy = new Date();
-      hoy.setDate(hoy.getDate() + 30);
-      const fechaFomo = hoy.toLocaleDateString('es-CL', { day: '2-digit', month: '2-digit', year: 'numeric' });
-
+      const fechaFomo = getFomoDate();
       const c = CREDITOS[currentCreditos[cur]]
-      const { detalle: d, val: v, liq: l, zona, proy } = c
+      const { detalle: d, val: v, liq: l, proy } = c
 
-      const conEq = l.con_equivalente_num
-      const conEqUF = fmtUF(conEq)
-      const conEqPesos = fmtPesos(conEq)
-      const disponiblePesos = fmtPesos(l.disponible_num)
-      const actualPesos = fmtPesos(v.actual_num)
+      // Monto máximo a liberar = 80% del valor comercial menos lo que debe
+      const maxFinanciamiento = v.actual_num * 0.80;
+      const disponibleNum = maxFinanciamiento - l.saldo_insoluto;
+      
+      const dispUF = fmtUF(disponibleNum), dispCLP = fmtPesos(disponibleNum);
+      const actualCLP = fmtPesos(v.actual_num);
 
       const pHTML = proy.map((p, i) => `
-    <div class="proy-item">
-      <div class="proy-trigger" id="pt${i}" onclick="toggleProy(${i})">
-        <div class="proy-left">
-          <img class="proy-thumb" src="${p.img}" alt="" role="presentation" onerror="this.style.display='none'">
-          <div>
-            <div class="proy-nombre">${p.n}</div>
-            <div class="proy-sub">${p.t} · ${p.m} m² · ${zona}</div>
+        <div class="proy-item">
+          <div class="proy-trigger" id="pt${i}" onclick="toggleProy(${i})">
+            <div class="proy-left">
+              <img class="proy-thumb" src="${p.img}" alt="" onerror="this.style.display='none'">
+              <div>
+                <div class="proy-nombre">${p.n}</div>
+                <div class="proy-sub">${p.t} · ${p.m} m²</div>
+              </div>
+            </div>
+            <div class="proy-right">
+              <div><div class="proy-precio">${p.precio}</div></div>
+              <div class="proy-chevron" id="pc${i}">▼</div>
+            </div>
           </div>
-        </div>
-        <div class="proy-right">
-          <div>
-            <div class="proy-precio">${p.precio}</div>
-            <div class="proy-canon">Canon ${p.canon}/mes</div>
+          <div class="proy-body" id="pb${i}" style="display:none">
+            <div class="proy-stat">
+              <div class="proy-stat-label">Precio estimado</div>
+              <div class="proy-stat-val">${p.precio}</div><div class="proy-stat-sub">${p.pp}</div>
+            </div>
+            <div class="proy-stat">
+              <div class="proy-stat-label">Canon de Arriendo</div>
+              <div class="proy-stat-val" style="color:#00843D">${p.canon}</div><div class="proy-stat-sub">${p.cp}</div>
+            </div>
           </div>
-          <div class="proy-chevron" id="pc${i}">▼</div>
-        </div>
-      </div>
-      <div class="proy-body" id="pb${i}" style="display:none">
-        <img class="proy-body-img" src="${p.img}" alt="" role="presentation" onerror="this.style.display='none'">
-        <div class="proy-stat">
-          <div class="proy-stat-label">Precio estimado</div>
-          <div class="proy-stat-val">${p.precio}</div>
-          <div class="proy-stat-sub">${p.pp}</div>
-        </div>
-        <div class="proy-stat">
-          <div class="proy-stat-label">Canon arriendo</div>
-          <div class="proy-stat-val" style="color:#00843D">${p.canon}</div>
-          <div class="proy-stat-sub">${p.cp}</div>
-        </div>
-        <div class="proy-stat">
-          <div class="proy-stat-label">Superficie</div>
-          <div class="proy-stat-val">${p.m} m²</div>
-          <div class="proy-stat-sub">${p.t}</div>
-        </div>
-        <div class="flujo">
-          <div class="flujo-titulo">Flujo de caja mensual estimado</div>
-          <div class="flujo-row"><span>+ Canon arriendo</span><span class="f-pos">${p.canon}</span></div>
-          <div class="flujo-row"><span>− Cuota rehipoteca</span><span class="f-neg">−${p.q}</span></div>
-          <div class="flujo-row"><span>= Ganancia neta</span><span class="f-pos">${p.g}</span></div>
-        </div>
-      </div>
-    </div>`).join('')
+        </div>`).join('')
 
       document.getElementById('content').innerHTML = `
-
-    <!-- 1. DATOS BANCO -->
-    <div class="sec-label">Detalle del crédito</div>
-    <div class="monto-pendiente">Monto pendiente <strong>${d.pendiente}</strong></div>
-    <div class="tabla" style="margin-bottom: 24px;">
-      <div class="tabla-row">
-        <span class="tr-label" style="display:block;">Monto otorgado</span>
-        <span class="tr-value" style="display:block;">${d.otorgado}</span>
-      </div>
-      <div class="tabla-row">
-        <span class="tr-label" style="display:block;">Dividendo actual mensual</span>
-        <span class="tr-value" style="display:block; color:#0055b3; font-weight:700;">${d.dividendo}</span>
-      </div>
-      <div class="tabla-row">
-        <span class="tr-label" style="display:block;">Tasa</span>
-        <span class="tr-value" style="display:block;">${d.tasa}</span>
-      </div>
-      <div class="tabla-row" style="border-bottom:none;">
-        <span class="tr-label" style="display:block; border-bottom:none;">Cobertura del crédito</span>
-        <span class="tr-value" style="display:block; border-bottom:none;">${d.cobertura}</span>
-      </div>
-    </div>
-
-    <!-- EL GANCHO / CURIOSITY GAP (TEASER VISIBLE) -->
-    <div class="teaser-box" id="teaser-plusvalia">
-      <div class="teaser-title">¿Sabes cuánto vale tu propiedad hoy?</div>
-      <div class="teaser-sub">Gracias a tu excelente comportamiento de pago y a la plusvalía de tu sector, <strong>tu patrimonio ha crecido</strong>. Descubre cuánto ha subido tu casa y los fondos extras que podrías liberar hoy mismo.</div>
-      <button class="btn-reveal" onclick="revelarPlusvalia()">
-        <span style="font-size: 20px;">✨</span> Revelar valor de mi propiedad
-      </button>
-    </div>
-
-    <!-- CONTENIDO OCULTO DE PLUSVALÍA (Se muestra al hacer clic) -->
-    <div id="plusvalia-secreta" class="plusvalia-content">
-      
-      <!-- 2. HERO TINSA (REFACTORIZADO UX: FOMO + Refuerzo Positivo) -->
-      <div class="hero-tinsa">
-        <div class="hero-tinsa-top">
-          <div class="hero-top-row">
-            <div class="hero-powered">powered by Tinsa</div>
-            <div class="hero-badge badge-fomo">⏱ Valorización válida hasta el ${fechaFomo}</div>
+        <!-- 1. DATOS BANCO -->
+        <div class="sec-label">Detalle del crédito</div>
+        <div class="monto-pendiente">Monto pendiente <strong>${d.pendiente}</strong></div>
+        <div class="tabla" style="margin-bottom: 24px;">
+          <div class="tabla-row">
+            <span class="tr-label" style="display:block;">Monto otorgado</span>
+            <span class="tr-value" style="display:block;">${d.otorgado}</span>
           </div>
-          <div class="hero-valor-label">El mercado está a tu favor. Hoy tu propiedad vale:</div>
-          <div class="hero-valor-uf">${v.actual}</div>
-          <div class="hero-valor-pesos">${actualPesos}</div>
-          <div class="hero-delta">↑ Ha crecido ${v.delta_uf} (${v.delta_pct}) desde que la compraste</div>
+          <div class="tabla-row">
+            <span class="tr-label" style="display:block;">Dividendo actual mensual</span>
+            <span class="tr-value" style="display:block; color:#0055b3; font-weight:700;">${d.dividendo}</span>
+          </div>
+          <div class="tabla-row">
+            <span class="tr-label" style="display:block;">Tasa</span>
+            <span class="tr-value" style="display:block;">${d.tasa}</span>
+          </div>
+          <div class="tabla-row" style="border-bottom:none;">
+            <span class="tr-label" style="display:block; border-bottom:none;">Cobertura del crédito</span>
+            <span class="tr-value" style="display:block; border-bottom:none;">${d.cobertura}</span>
+          </div>
         </div>
-      </div>
 
-      <!-- 3. EL VIAJE DE TU PLUSVALÍA (NUEVO STORYTELLING) -->
-      <div class="sec-label" style="margin-top: 32px;">El viaje de tu plusvalía</div>
-      <p style="font-size:12px; color:#666; margin-bottom:16px;">Has pagado responsablemente y tu propiedad ha subido de valor. Esto ha creado capital a tu favor.</p>
-      <div class="historia-box">
-        <div class="hist-card">
-          <div class="hist-title">📅 Cuando compraste (${v.orig_fecha.substring(0, 4)})</div>
-          <div class="hist-row"><span>Valor Propiedad:</span><span class="hist-val">${fmtUF(v.orig_num)}</span></div>
-          <div class="hist-row"><span>Crédito Inicial:</span><span class="hist-val">${d.otorgado}</span></div>
+        <!-- TEASER: Curiosity Gap -->
+        <div class="teaser-box" id="teaser-plusvalia">
+          <div class="teaser-title">¿Sabes cuánto vale tu propiedad hoy?</div>
+          <div class="teaser-sub">Gracias a tu excelente comportamiento de pago y a la plusvalía de tu sector, <strong>tu patrimonio ha crecido</strong>. Descubre cuánto ha subido tu casa y los fondos extras que podrías liberar hoy mismo.</div>
+          <button class="btn-reveal" onclick="revelarPlusvalia()">
+            <span style="font-size: 20px;">✨</span> Revelar valor de mi propiedad
+          </button>
         </div>
-        <div class="hist-arrow">→</div>
-        <div class="hist-card hoy">
-          <div class="hist-title">📍 Hoy (${v.actual_fecha.substring(0, 4)})</div>
-          <div class="hist-row"><span>Valor Propiedad:</span><span class="hist-val" style="color:#0055b3;">${v.actual}</span></div>
-          <div class="hist-row"><span>Deuda Actual:</span><span class="hist-val">${d.pendiente}</span></div>
-          <div class="hist-badge">🏆 Tienes liquidez inmovilizada</div>
-        </div>
-      </div>
 
-      <!-- 4. CALCULADORA DINÁMICA (EFECTO IKEA / ENDOWMENT) -->
-      <div class="sec-label" style="margin-top: 32px;">Arma tu refinanciamiento</div>
-      <div class="calc-box">
-        <h3 style="font-size:16px; color:#1a1a1a; margin-bottom:4px;">¿Cuánto capital quieres liberar hoy?</h3>
-        <div style="font-size:13px; color:#777; margin-bottom: 24px;">Tienes pre-aprobado hasta <strong>${l.disponible}</strong>. Mueve los controles para calcular tu nuevo dividendo.</div>
+        <!-- CONTENIDO OCULTO (Revelado post clic) -->
+        <div id="plusvalia-secreta" class="plusvalia-content">
+          
+          <!-- 2. HERO TINSA (FOMO) -->
+          <div class="hero-tinsa">
+            <div class="hero-tinsa-top">
+              <div class="hero-top-row">
+                <div class="hero-powered">powered by Tinsa</div>
+                <div class="hero-badge badge-fomo">⏱ Valorización válida hasta el ${fechaFomo}</div>
+              </div>
+              <div class="hero-valor-label">El mercado está a tu favor. Hoy tu propiedad vale:</div>
+              <div class="hero-valor-uf">${v.actual}</div>
+              <div class="hero-valor-pesos">${actualCLP}</div>
+              <div class="hero-delta">↑ Ha crecido ${v.delta_uf} (${v.delta_pct}) desde que la compraste</div>
+            </div>
+          </div>
+
+          <!-- 3. TIMELINE (Historia de la Plusvalía) -->
+          <div class="sec-label" style="margin-top: 32px;">El viaje de tu plusvalía</div>
+          <p style="font-size:12px; color:#666; margin-bottom:16px;">Has pagado responsablemente y tu propiedad ha subido de valor. Esto ha creado capital a tu favor.</p>
+          <div class="historia-box">
+            <div class="hist-card">
+              <div class="hist-title">📅 Cuando compraste (${v.orig_fecha.substring(0, 4)})</div>
+              <div class="hist-row"><span>Valor Propiedad:</span><span class="hist-val">${fmtUF(v.orig_num)}</span></div>
+              <div class="hist-row"><span>Crédito Inicial:</span><span class="hist-val">${d.otorgado}</span></div>
+            </div>
+            <div class="hist-arrow">→</div>
+            <div class="hist-card hoy">
+              <div class="hist-title">📍 Hoy (${v.actual_fecha.substring(0, 4)})</div>
+              <div class="hist-row"><span>Valor Propiedad:</span><span class="hist-val" style="color:#0055b3;">${v.actual}</span></div>
+              <div class="hist-row"><span>Deuda Actual:</span><span class="hist-val">${d.pendiente}</span></div>
+              <div class="hist-badge">🏆 Tienes liquidez inmovilizada</div>
+            </div>
+          </div>
+
+          <!-- 4. CALCULADORA DINÁMICA (Endowment Effect) -->
+          <div class="sec-label" style="margin-top: 32px;">Arma tu refinanciamiento</div>
+          <div class="calc-box">
+            <h3 style="font-size:16px; color:#1a1a1a; margin-bottom:4px;">¿Cuánto capital quieres liberar hoy?</h3>
+            <div style="font-size:13px; color:#777; margin-bottom: 24px;">Tienes pre-aprobado hasta <strong>${dispUF}</strong>. Mueve los controles para calcular tu nuevo dividendo.</div>
+            
+            <div style="display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 32px;">
+              <div style="flex: 2; min-width: 250px; text-align: left;">
+                <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+                  <span style="font-size:13px; font-weight:600; color:#444;">Capital a liberar:</span>
+                  <span style="font-size:14px; font-weight:700; color:#0055b3;" id="lbl-monto">--</span>
+                </div>
+                <input type="range" id="calc-slider" class="calc-slider" min="50" max="${Math.floor(disponibleNum)}" step="10" value="${Math.round(disponibleNum * 0.4)}">
+              </div>
+              <div style="flex: 1; min-width: 180px; text-align: left;">
+                <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+                  <span style="font-size:13px; font-weight:600; color:#444;">Plazo de pago:</span>
+                  <span style="font-size:14px; font-weight:700; color:#0055b3;" id="lbl-plazo">20 años</span>
+                </div>
+                <input type="range" id="calc-plazo" class="calc-slider" min="5" max="30" step="1" value="20">
+              </div>
+            </div>
+
+            <div class="calc-outputs">
+              <div class="c-out-item">
+                <div class="c-out-lbl">Dinero a tu bolsillo</div>
+                <div class="c-out-val highlight" id="calc-monto-solicitado">--</div>
+                <div class="c-out-sub" id="calc-monto-solicitado-pesos">--</div>
+              </div>
+              <div class="c-out-item c-border-l">
+                <div class="c-out-lbl">Nuevo Saldo Total</div>
+                <div class="c-out-val" id="calc-nuevo-saldo">--</div>
+                <div class="c-out-sub">Absorbe tu deuda actual</div>
+              </div>
+              <div class="c-out-item c-border-l">
+                <div class="c-out-lbl">Nuevo Dividendo Aprox.</div>
+                <div class="c-out-val" id="calc-nuevo-div">--</div>
+                <div class="c-out-sub" id="calc-aumento-div" style="color:#00843D; font-weight:700;">--</div>
+              </div>
+            </div>
+            <div style="margin-top:20px;">
+              <button class="hero-br-cta" onclick="showToast('Simulación Refinanciamiento')" style="width:auto; padding: 12px 32px; font-size:14px; border-radius:4px;">Continuar con esta simulación →</button>
+            </div>
+          </div>
+
+          <!-- 5. TABLA DINÁMICA (Anclaje) -->
+          <div class="card-section">
+            <div class="section-head" style="border-bottom:none; padding-bottom:0;">
+              <div>
+                <h3>¿Por qué Financiamiento Hipotecario y no Consumo?</h3>
+                <div class="section-sub">Mira la diferencia de cuota si pidieras este mismo dinero en un crédito de consumo tradicional a 5 años.</div>
+              </div>
+            </div>
+
+            <table class="tabla" style="margin-bottom: 0; margin-top: 14px;">
+              <thead>
+                <tr style="background-color: #f4f6f8;">
+                  <th style="text-align: left; padding: 12px; border-bottom: 2px solid #eaeaea; color: #444; font-weight: 600;">Para liberar un monto de:</th>
+                  <th style="text-align: center; padding: 12px; border-bottom: 2px solid #eaeaea; color: #444; font-weight: 600;">Crédito de Consumo</th>
+                  <th style="text-align: center; padding: 12px; border-bottom: 2px solid #eaeaea; background-color: #0055b3; color: white; font-weight: 600;">Activar Plusvalía Hipotecaria</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="tr-label" style="background:#fff; font-size:18px; font-weight:700; color:#1a1a1a;">
+                    <strong id="comp-monto-ancla">--</strong>
+                  </td>
+                  <td class="tr-value" style="text-align:center;">
+                    <div style="font-size:11px; color:#777; font-weight:normal; margin-bottom:4px;">Pagarías una cuota extra de:<br><span style="font-size:10px;">(a 5 años y tasa 24.1%)</span></div>
+                    <strong id="comp-cuota-con" style="color:#cc0000; font-size:16px;">--</strong><br>
+                    <span id="comp-cuota-con-pesos" style="font-size:11px;color:#777;">--</span>
+                  </td>
+                  <td class="tr-value" style="text-align:center; background-color: rgba(0, 132, 61, 0.05);">
+                    <div id="comp-cuota-hip-label" style="font-size:11px; color:#777; font-weight:normal; margin-bottom:4px;">Tu dividendo solo sube en:<br><span style="font-size:10px;">--</span></div>
+                    <strong id="comp-cuota-hip" style="color: #00843D; font-size: 18px;">--</strong><br>
+                    <span id="comp-cuota-hip-pesos" style="font-size:12px;color:#00843D;">--</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 6. CASOS DE USO -->
+          <div class="card-section">
+            <div class="section-head">
+              <div>
+                <h3>¿Qué harías con este capital hoy?</h3>
+                <div class="section-sub">Tangibiliza tu patrimonio inmovilizado. Habla con tu ejecutivo y te ayudamos.</div>
+              </div>
+            </div>
+            <div class="acciones-grid">
+              <div class="accion-card" onclick="showToast('Remodelar')">
+                <div class="accion-icon">🛠️</div>
+                <div class="accion-titulo">Remodelar</div>
+                <div class="accion-desc">Moderniza tus espacios y aumenta aún más el valor de tu propiedad.</div>
+                <button class="accion-btn">Simular →</button>
+              </div>
+              <div class="accion-card" onclick="showToast('Ampliar')">
+                <div class="accion-icon">🏗️</div>
+                <div class="accion-titulo">Ampliar</div>
+                <div class="accion-desc">Adapta tu casa a las nuevas necesidades de tu familia.</div>
+                <button class="accion-btn">Simular →</button>
+              </div>
+              <div class="accion-card" onclick="showToast('Eficiencia')">
+                <div class="accion-icon">☀️</div>
+                <div class="accion-titulo">Eficiencia</div>
+                <div class="accion-desc">Invierte en energía solar o aislación y reduce tus gastos fijos.</div>
+                <button class="accion-btn">Simular →</button>
+              </div>
+              <div class="accion-card" onclick="showToast('Inversión')">
+                <div class="accion-icon">🔑</div>
+                <div class="accion-titulo">Inversión</div>
+                <div class="accion-desc">Compra una segunda propiedad pagando solo la diferencia del canon.</div>
+                <button class="accion-btn">Ver proyectos →</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 7. INVERSIÓN (PROYECTOS) -->
+          <div class="card-section">
+            <div style="margin-bottom:24px;">
+              <h3 style="font-size:16px;font-weight:600;margin-bottom:6px;">🏘️ Proyectos Recomendados</h3>
+              <p style="font-size:13px;color:var(--text-3);line-height:1.5;">Usa tu plusvalía como pie inicial para estas oportunidades.</p>
+            </div>
+            ${pHTML}
+          </div>
         
-        <div style="display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 32px;">
-          <div style="flex: 2; min-width: 250px; text-align: left;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
-              <span style="font-size:13px; font-weight:600; color:#444;">Capital a liberar:</span>
-              <span style="font-size:14px; font-weight:700; color:#0055b3;" id="lbl-monto">--</span>
-            </div>
-            <input type="range" id="calc-slider" class="calc-slider" min="50" max="${l.disponible_num}" step="10" value="${Math.round(l.disponible_num * 0.4)}">
-          </div>
-          <div style="flex: 1; min-width: 180px; text-align: left;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
-              <span style="font-size:13px; font-weight:600; color:#444;">Plazo de pago:</span>
-              <span style="font-size:14px; font-weight:700; color:#0055b3;" id="lbl-plazo">20 años</span>
-            </div>
-            <input type="range" id="calc-plazo" class="calc-slider" min="5" max="30" step="1" value="20">
-          </div>
-        </div>
-
-        <div class="calc-outputs">
-          <div class="c-out-item">
-            <div class="c-out-lbl">Dinero a tu bolsillo</div>
-            <div class="c-out-val highlight" id="calc-monto-solicitado">--</div>
-            <div class="c-out-sub" id="calc-monto-solicitado-pesos">--</div>
-          </div>
-          <div class="c-out-item c-border-l">
-            <div class="c-out-lbl">Nuevo Saldo Total</div>
-            <div class="c-out-val" id="calc-nuevo-saldo">--</div>
-            <div class="c-out-sub">Absorbe tu deuda actual</div>
-          </div>
-          <div class="c-out-item c-border-l">
-            <div class="c-out-lbl">Nuevo Dividendo Aprox.</div>
-            <div class="c-out-val" id="calc-nuevo-div">--</div>
-            <div class="c-out-sub" id="calc-aumento-div" style="color:#00843D; font-weight:700;">--</div>
-          </div>
-        </div>
-        <div style="margin-top:20px;">
-          <button class="hero-br-cta" onclick="showToast('Simulación Refinanciamiento')" style="width:auto; padding: 12px 32px; font-size:14px; border-radius:4px;">Continuar con esta simulación →</button>
-        </div>
-      </div>
-
-      <!-- 5. LIQUIDEZ INVERTIDA (REFACTORIZADO UX: ANCLAJE CONECTADO A CALCULADORA) -->
-      <div class="card-section">
-        <div class="section-head" style="border-bottom:none; padding-bottom:0;">
-          <div>
-            <h3>¿Por qué Financiamiento Hipotecario y no Consumo?</h3>
-            <div class="section-sub">Mira la diferencia de cuota si pidieras este mismo dinero en un crédito de consumo tradicional a 5 años.</div>
-          </div>
-        </div>
-
-        <!-- Tabla Comparativa Dinámica -->
-        <table class="tabla" style="margin-bottom: 0; margin-top: 14px;">
-          <thead>
-            <tr style="background-color: #f4f6f8;">
-              <th style="text-align: left; padding: 12px; border-bottom: 2px solid #eaeaea; color: #444; font-weight: 600;">Para liberar un monto de:</th>
-              <th style="text-align: center; padding: 12px; border-bottom: 2px solid #eaeaea; color: #444; font-weight: 600;">Crédito de Consumo</th>
-              <th style="text-align: center; padding: 12px; border-bottom: 2px solid #eaeaea; background-color: #0055b3; color: white; font-weight: 600;">Activar Plusvalía Hipotecaria</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="tr-label" style="background:#fff; font-size:18px; font-weight:700; color:#1a1a1a;">
-                <strong id="comp-monto-ancla">--</strong>
-              </td>
-              <td class="tr-value" style="text-align:center;">
-                <div style="font-size:11px; color:#777; font-weight:normal; margin-bottom:4px;">Pagarías una cuota extra de:<br><span style="font-size:10px;">(a 5 años y tasa 24.1%)</span></div>
-                <strong id="comp-cuota-con" style="color:#cc0000; font-size:16px;">--</strong><br>
-                <span id="comp-cuota-con-pesos" style="font-size:11px;color:#777;">--</span>
-              </td>
-              <td class="tr-value" style="text-align:center; background-color: rgba(0, 132, 61, 0.05);">
-                <!-- Se agregó un ID al label para cambiarlo dinámicamente -->
-                <div id="comp-cuota-hip-label" style="font-size:11px; color:#777; font-weight:normal; margin-bottom:4px;">Tu dividendo solo sube en:<br><span id="comp-plazo-hip" style="font-size:10px;">--</span></div>
-                <strong id="comp-cuota-hip" style="color: #00843D; font-size: 18px;">--</strong><br>
-                <span id="comp-cuota-hip-pesos" style="font-size:12px;color:#00843D;">--</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- 6. ¿QUÉ QUIERES HACER? (REFACTORIZADO UX: INSPIRACIÓN) -->
-      <div class="card-section">
-        <div class="section-head">
-          <div>
-            <h3>¿Qué harías con este capital hoy?</h3>
-            <div class="section-sub">Tangibiliza tu patrimonio inmovilizado. Habla con tu ejecutivo y te ayudamos.</div>
-          </div>
-        </div>
-        <div class="acciones-grid">
-          <div class="accion-card" onclick="showToast('Remodelar')">
-            <div class="accion-icon">🛠️</div>
-            <div class="accion-titulo">Remodelar</div>
-            <div class="accion-desc">Moderniza tus espacios y aumenta aún más el valor de tu propiedad.</div>
-            <button class="accion-btn">Simular →</button>
-          </div>
-          <div class="accion-card" onclick="showToast('Ampliar')">
-            <div class="accion-icon">🏗️</div>
-            <div class="accion-titulo">Ampliar</div>
-            <div class="accion-desc">Adapta tu casa a las nuevas necesidades de tu familia.</div>
-            <button class="accion-btn">Simular →</button>
-          </div>
-          <div class="accion-card" onclick="showToast('Eficiencia')">
-            <div class="accion-icon">☀️</div>
-            <div class="accion-titulo">Eficiencia</div>
-            <div class="accion-desc">Invierte en energía solar o aislación y reduce tus gastos fijos.</div>
-            <button class="accion-btn">Simular →</button>
-          </div>
-          <div class="accion-card" onclick="showToast('Inversión')">
-            <div class="accion-icon">🔑</div>
-            <div class="accion-titulo">Inversión</div>
-            <div class="accion-desc">Compra una segunda propiedad pagando solo la diferencia del canon.</div>
-            <button class="accion-btn">Ver proyectos →</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5. PROYECTOS (Complemento a Inversión - Existente) -->
-      <div class="card-section">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:24px;flex-wrap:wrap;">
-          <div>
-            <h3 style="font-size:19px;font-weight:600;margin-bottom:6px;">🏘️ Proyectos Recomendados</h3>
-            <p style="font-size:13px;color:var(--text-3);line-height:1.5;max-width:480px;">Usa tu liquidez para comprar una segunda propiedad y arriéndarla — en varios proyectos el canon cubre la cuota rehipoteca</p>
-          </div>
-          <div style="background:var(--red-light);border:1.5px solid var(--red-mid);border-radius:2px;padding:12px 16px;text-align:center;flex-shrink:0;min-width:180px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#0055b3;margin-bottom:6px;">Tienes disponible</div>
-            <div style="font-size:24px;font-weight:700;color:#0055b3;letter-spacing:-0.5px;">${l.disponible}</div>
-            <div style="font-size:12px;color:var(--text-3);margin-top:2px;">${disponiblePesos}</div>
-          </div>
-        </div>
-        ${pHTML}
-      </div>
-
-    </div> <!-- FIN plusvalia-secreta -->
-  `
-      // Inicializar eventos (no inicializamos la calc hasta que hagan click, 
-      // pero la dejamos lista. La reiniciamos en revelarPlusvalia para asegurar 
-      // que los tamaños de los sliders se lean correctamente tras quitar display:none)
-      initCalculadora();
+        </div> <!-- Fin plusvalia-secreta -->
+      `
+      
+      // La calculadora se inicia cuando presionan el botón Teaser, no aquí en el render inicial.
     }
   </script>
 </body>
-
 </html>
